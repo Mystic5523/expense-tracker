@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">    
+    <link rel="stylesheet" href="/assets/css/style.css" media="screen" title="no title" charset="utf-8">
+    <script src="/assets/script/script.js"></script>
+
+    <title>Expense Report</title>
+</head>
+
+
+<body>
+
+<div class="jumbotron text-center bg-dark text-white">
+        <h1 class="display-4">Receipt Tracker</h1>
+        <p class="lead">Add a new item:</p>
+    </div>
+
+    <!--Form,-->
+    <div class="card card-default">
+            <div class="card-body">
+                <form>
+                    <div class="form-group font-weight-bold">
+                        <label>Location:</label>
+                        <input class="form-control" type="text" placeholder="Location" id="location">
+                    </div>
+                    <div class="form-group font-weight-bold">
+                        <label>Expense:</label>
+                        <input class="form-control" type="text" placeholder="Total" id="cost">
+                    </div>
+                    <div class="form-group font-weight-bold">
+                        <label>Payment Type:</label>
+                        <input class="form-control" type="text" placeholder="Payment Type" id="type">
+                    </div>
+                    <div class="form-group font-weight-bold">
+                        <label>Date (mm/dd/yyyy):</label>
+                        <input class="form-control" type="text" placeholder="Date (mm/dd/yyyy)" id="date">
+                    </div>
+                    <button type="button" class="btn btn-dark" id="add">Submit</button>
+                </form>
+            </div>
+        </div>
+    
+
+    <!--Table-->
+    <div class="card card-default">
+        <div class="card-body">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Paid To</th>
+                        <th scope="col">Total Spent</th>
+                        <th scope="col">Paid with</th>
+                        <th scope="col">Date Paid</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>KC BBQ</td>
+                        <td>25.50</td>
+                        <td>Card</td>
+                        <td>12/23/2018</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <br>
+
+</body>
+
+</html>
