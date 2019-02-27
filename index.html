@@ -24,14 +24,14 @@
     <!--Form,-->
     <div class="card card-default">
             <div class="card-body">
-                <form>
+                <form enctype="application/x-www-form-urlencoded" id="form">
                     <div class="form-group font-weight-bold">
                         <label>Location:</label>
                         <input class="form-control" type="text" placeholder="Location" id="location">
                     </div>
                     <div class="form-group font-weight-bold">
                         <label>Expense:</label>
-                        <input class="form-control" type="text" placeholder="Total" id="cost">
+                        <input class="form-control" type="number" placeholder="Total" id="cost" min="0" data-bind="value:replyNumber">
                     </div>
                     <div class="form-group font-weight-bold">
                         <label>Payment Type:</label>
@@ -57,18 +57,20 @@
                         <th scope="col">Total Spent</th>
                         <th scope="col">Paid with</th>
                         <th scope="col">Date Paid</th>
-                        <th scope="col">Total</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                     <tr>
-                        <td>KC BBQ</td>
-                        <td>25.50</td>
-                        <td>Card</td>
-                        <td>12/23/2018</td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div class="card card-default">
+        <div class="card-body">
+            <h3 class="card-title">Total:</h5>
+            <h4 id="total"></h4>
         </div>
     </div>
 

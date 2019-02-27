@@ -1,34 +1,3 @@
-$(document).ready(function () {
-    $("#add").click(function () {
-        event.preventDefault();
-        var location = $("#location").val();
-        var cost = $("#cost").val();
-        var type = $("#type").val();
-        var date = $("#date").val();
-
-
-        location = $("#location").val().trim();
-        cost = $("#cost").val().trim();
-        type = $("#type").val().trim();
-        date = $("#date").val().trim();
-        console.log("hello");
-        console.log(location);
-        console.log(cost);
-        console.log(type);
-        console.log(date);
-
-
-
-        database.ref().push({
-            location: location,
-            cost: cost,
-            type: type,
-            date: date,
-
-        });
-    });
-});
-
 var config = {
     apiKey: "AIzaSyDTHWBr6OH04v7nJnzOrXIkT9qgKgO2iBI",
     authDomain: "expensive-b93c6.firebaseapp.com",
@@ -41,18 +10,51 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-//initial values
-// var location = "";
-// var cost = "";
-// var type = "";
-// var date = "";
+window.onload = function () {
+    const total = []
+    const form = document.getElementById("form");
 
+    document.getElementById("add").addEventListener("click", function(event) {
+        event.preventDefault();
+        let location = document.getElementById('location').value;
+        let number = document.getElementById('cost').value;
+        let cost = Number(number);
+        let type = document.getElementById('type').value;
+        let date = document.getElementById('date').value;
+        total.push(cost);
+
+        location.trim();
+        type.trim();
+        date.trim();
+    
+        database.ref().push().set({
+            location: location,
+            cost: cost,
+            type: type,
+            date: date,
+            total: total,
+        });
+
+        form.reset();
+    }, false);
+}
 
 database.ref().on("child_added", function (snapshot) {
     var sv = snapshot.val();
+    // console.log(sv.cost);
 
-    console.log(sv.minAway)
-    $("table tbody").append("<tr><td>" + sv.location + "</td><td>" + sv.cost + "</td><td>" + sv.type + "</td><td>" + sv.date + "</td></tr>");
 
+    $("table tbody").append("<tr><td>" + sv.location + "</td><td name='spent'>" + sv.cost + "</td><td>" + sv.type + "</td><td>" + sv.date + "</td></tr>");
+
+
+    // console.log(sv.total)
+    sum = sv.total.reduce(add)
+
+    function add (a, b) {
+        return a + b;
+    }
+
+    $("#total").replaceWith("<p>" + sum + "<p>")
 
 });
+
